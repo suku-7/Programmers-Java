@@ -10,7 +10,7 @@ class Solution {
     }
     public long solution(int n, int[] times) {
         long start = 1;
-        long end = 100000000000000000L;
+        long end = (long) Arrays.stream(times).max().getAsInt() * n;
         
         while (end > start) {
             long t = (start + end)/2;
