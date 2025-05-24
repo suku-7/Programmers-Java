@@ -11,7 +11,7 @@ class Solution {
         for (String name : completion) {
             int v = count.get(name) -1;
             count.put(name, v);
-            if (v==0) count.remove(name);
+            if (v == 0) count.remove(name);
         }
         return count.keySet().iterator().next();
     }
