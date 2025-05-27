@@ -8,7 +8,7 @@ class Solution {
         }
         Arrays.sort(nums, (o1, o2) -> (o2+o1).compareTo(o1+o2));
         
-        if (nums[0].equals("0")) {
+        if(nums[0].equals("0")) {
             return "0";
         }
         StringBuilder sb = new StringBuilder();
