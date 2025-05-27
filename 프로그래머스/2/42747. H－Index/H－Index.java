@@ -6,7 +6,7 @@ class Solution {
         int n = citations.length;
         Arrays.sort(citations);
         
-        for (int i=0; i<citations.length; i++) {
+        for (int i=0; i<n; i++) {
             if (citations[i] >= n-i) {
                 answer = n-i;
                 break;
