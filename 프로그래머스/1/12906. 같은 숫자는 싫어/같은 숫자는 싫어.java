@@ -8,8 +8,8 @@ public class Solution {
         
         for (int num : arr) {
             if (num != prev) {
-                queue.add(num);
                 prev = num;
+                queue.add(num);
             }
         }
         int[] answer = new int[queue.size()];
