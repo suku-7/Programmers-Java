@@ -8,14 +8,14 @@ public class Solution {
         
         for (int num : arr) {
             if (num != prev) {
-                queue.add(num);
                 prev = num;
+                queue.add(num);
             }
         }
         int[] answer = new int[queue.size()];
-        int i = 0;
         
-        while (!queue.isEmpty()) {
+        int i = 0;
+        while(!queue.isEmpty()) {
             answer[i] = queue.poll();
             i++;
         }
