@@ -12,6 +12,6 @@ class Solution {
             maxW = Math.max(maxW, w);
             maxH = Math.max(maxH, h);
         }
-        return maxW*maxH;
+        return maxW * maxH;
     }
 }
