@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int solution(int[][] sizes) {
         int maxW = 0;
