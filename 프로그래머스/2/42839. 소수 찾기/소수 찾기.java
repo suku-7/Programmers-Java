@@ -7,6 +7,7 @@ class Solution {
         permutation("", numbers);
         
         int count = 0;
+        
         for (int num : numberSet) {
             if (isPrime(num)) {
                 count++;
@@ -19,7 +20,7 @@ class Solution {
             numberSet.add(Integer.parseInt(prefix));
         }
         for (int i=0; i<remain.length(); i++) {
-            permutation(prefix+remain.charAt(i), remain.substring(0, i)+remain.substring(i+1));
+            permutation(prefix+remain.charAt(i), remain.substring(0,i)+remain.substring(i+1));
         }
     }
     public boolean isPrime(int num) {
