@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Solution {
     public int solution(int[][] sizes) {
         int maxW = 0;
@@ -11,6 +12,6 @@ class Solution {
             maxW = Math.max(maxW, w);
             maxH = Math.max(maxH, h);
         }
-        return maxW * maxH;
+        return maxW*maxH;
     }
 }
