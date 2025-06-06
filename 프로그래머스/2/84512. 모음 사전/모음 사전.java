@@ -1,7 +1,6 @@
 import java.util.*;
 
 
-
 class Solution {
     List<String> wordList = new ArrayList<>();
     String[] vowels = {"A", "E", "I", "O", "U"};
@@ -17,7 +16,7 @@ class Solution {
             wordList.add(current);
         }
         for (String v : vowels) {
-            dfs(current + v, depth+1);
+            dfs(current + v, depth+1);   
         }
     }
 }
