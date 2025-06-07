@@ -17,11 +17,10 @@ class Solution {
             int cost = dungeons[i][1];
             
             if (!visited[i] && k >= minRequired) {
-                visited[i] = true;            
+                visited[i] = true;
                 dfs(depth+1, k-cost, dungeons);
                 visited[i] = false;
             }
-
         }
     }
 }
