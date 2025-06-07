@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 class Solution {
     HashSet<Integer> numberSet = new HashSet<>();
     
