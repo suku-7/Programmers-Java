@@ -6,12 +6,13 @@ class Solution {
     public int solution(int n, int[][] wires) {
         for (int i=0; i<wires.length; i++) {
             List<List<Integer>> graph = new ArrayList<>();
+            
             for (int j=0; j<=n; j++) {
                 graph.add(new ArrayList<>());
             }
             
             for (int j=0; j<wires.length; j++) {
-                if (i==j) continue;
+                if (i == j) continue;
                 int a = wires[j][0];
                 int b = wires[j][1];
                 graph.get(a).add(b);
