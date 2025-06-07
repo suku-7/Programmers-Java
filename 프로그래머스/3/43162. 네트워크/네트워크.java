@@ -13,13 +13,13 @@ class Solution {
         }
         return answer;
     }
-    public void dfs(int[][] computers, boolean[] visited, int current, int n) {
+    private void dfs(int[][] computers, boolean[] visited, int current, int n) {
         visited[current] = true;
-
+        
         for (int i=0; i<n; i++) {
-            if (computers[current][i] == 1 && !visited[i]) {
+            if (!visited[i] && computers[current][i] == 1) {
                 dfs(computers, visited, i, n);
             }
-        }      
+        }
     }
 }
