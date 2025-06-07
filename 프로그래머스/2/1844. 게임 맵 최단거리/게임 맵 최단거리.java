@@ -33,6 +33,10 @@ class Solution {
             }
         }
         int answer = maps[n-1][m-1];
-        return answer == 1 ? -1 : answer;
+        if (answer == 1) {
+            return -1;
+        } else {
+            return answer;
+        }
     }
 }
