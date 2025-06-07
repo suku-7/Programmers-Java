@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
     static boolean[] visited;
     static int max = 0;
@@ -11,7 +9,6 @@ class Solution {
     }
     public void dfs(int depth, int k, int[][] dungeons) {
         max = Math.max(max, depth);
-        
         for (int i=0; i<dungeons.length; i++) {
             int minRequired = dungeons[i][0];
             int cost = dungeons[i][1];
