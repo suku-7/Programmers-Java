@@ -16,5 +16,5 @@ class Solution {
         }
         dfs(numbers, target, depth+1, sum+numbers[depth]);
         dfs(numbers, target, depth+1, sum-numbers[depth]);
-    }
+    }    
 }
