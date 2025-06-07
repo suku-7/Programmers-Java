@@ -1,0 +1,60 @@
+import java.util.*;
+
+class Solution {
+    static final int SIZE = 102; // 좌표를 2배 확장해서 100 넘을 수 있음
+    static boolean[][] map = new boolean[SIZE][SIZE];
+    static boolean[][] visited = new boolean[SIZE][SIZE];
+    static int[] dx = {0, 0, 1, -1};
+    static int[] dy = {1, -1, 0, 0};
+    
+    public int solution(int[][] rectangle, int characterX, int characterY, int itemX, int itemY) {
+        // Step 1: 좌표 2배 확장
+        for (int[] rect : rectangle) {
+            int x1 = rect[0] * 2, y1 = rect[1] * 2;
+            int x2 = rect[2] * 2, y2 = rect[3] * 2;
+            
+            //Step 2 : 사각형 내부 채우기
+            for (int i=x1; i<=x2; i++) {
+                for (int j=y1; j<=y2; j++) {
+                    map[i][j] = true;
+                }
+            }
+        }
+        // Step 3: 내부 제거 (테두리만 남기기)
+        for (int[] rect : rectangle) {
+            int x1 = rect[0] * 2, y1 = rect[1] * 2;
+            int x2 = rect[2] * 2, y2 = rect[3] * 2;
+            
+            for (int i = x1+1; i<x2; i++) {
+                for (int j=y1+1; j<y2; j++) {
+                    map[i][j] = false;
+                }
+            }
+        }
+        // Step 4 : BFS 시작
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[] {characterX * 2, characterY * 2, 0});
+        visited[characterX * 2][characterY * 2] = true;
+        
+        while (!queue.isEmpty()) {
+            int[] cur = queue.poll();
+            int x = cur[0], y = cur[1], dist = cur[2];
+            
+            if (x == itemX * 2 && y == itemY * 2) {
+                return dist / 2;
+            }
+            for (int d = 0; d<4; d++) {
+                int nx = x + dx[d];
+                int ny = y + dy[d];
+                
+                if (nx >= 0 && ny >= 0 && nx < SIZE && ny < SIZE) {
+                    if (!visited[nx][ny] && map[nx][ny]) {
+                        visited[nx][ny] = true;
+                        queue.add(new int[] {nx, ny, dist+1});
+                    }
+                }
+            }
+        }
+        return 0; // 도달할 수 없는 경우
+    }
+}
