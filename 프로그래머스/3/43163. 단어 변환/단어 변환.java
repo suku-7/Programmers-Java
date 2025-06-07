@@ -14,6 +14,7 @@ class Solution {
         if (!Arrays.asList(words).contains(target)) {
             return 0;
         }
+        
         Queue<Word> queue = new LinkedList<>();
         boolean[] visited = new boolean[words.length];
         queue.add(new Word(begin, 0));
@@ -24,6 +25,7 @@ class Solution {
             if (current.word.equals(target)) {
                 return current.step;
             }
+            
             for (int i=0; i<words.length; i++) {
                 if (!visited[i] && canConvert(current.word, words[i])) {
                     visited[i] = true;
@@ -39,7 +41,7 @@ class Solution {
             if (a.charAt(i) != b.charAt(i)) {
                 diff++;
             }
-            if (diff > 1) return false;
+            if (diff >1 ) return false;
         }
         return diff == 1;
     }
