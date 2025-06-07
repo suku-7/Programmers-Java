@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class Solution {
     public int[] solution(int brown, int yellow) {
         int total = brown + yellow;
