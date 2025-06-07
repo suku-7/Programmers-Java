@@ -1,6 +1,15 @@
 import java.util.*;
 
 class Solution {
+    private class Word {
+        String word;
+        int step;
+        Word(String word, int step) {
+            this.word = word;
+            this.step = step;
+        }
+    }
+    
     public int solution(String begin, String target, String[] words) {
         if (!Arrays.asList(words).contains(target)) {
             return 0;
@@ -33,13 +42,5 @@ class Solution {
             if (diff > 1) return false;
         }
         return diff == 1;
-    }
-    private class Word {
-        String word;
-        int step;
-        Word(String word, int step) {
-            this.word = word;
-            this.step = step;
-        }
     }
 }
