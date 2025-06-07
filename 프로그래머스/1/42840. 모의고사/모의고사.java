@@ -7,7 +7,6 @@ class Solution {
         int[] person3 = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
         
         int[] score = new int[3];
-        
         for (int i=0; i<answers.length; i++) {
             if (answers[i] == person1[i % person1.length]) score[0]++;
             if (answers[i] == person2[i % person2.length]) score[1]++;
