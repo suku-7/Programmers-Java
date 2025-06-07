@@ -2,6 +2,7 @@ import java.util.*;
 
 class Solution {
     HashSet<Integer> numberSet = new HashSet<>();
+    
     public int solution(String numbers) {
         permutation("", numbers);
         
@@ -18,7 +19,7 @@ class Solution {
             numberSet.add(Integer.parseInt(prefix));
         }
         for (int i=0; i<remain.length(); i++) {
-            permutation(prefix+remain.charAt(i), remain.substring(0,i)+remain.substring(i+1));
+            permutation(prefix+remain.charAt(i), remain.substring(0, i)+remain.substring(i+1));
         }
     }
     public boolean isPrime(int num) {
