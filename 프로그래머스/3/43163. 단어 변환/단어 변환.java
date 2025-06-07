@@ -1,50 +1,45 @@
 import java.util.*;
 
 class Solution {
-    private static class State {
-        public final String word;
-        public final int step;
-        
-        private State(String word, int step) {
-            this.word = word;
-            this.step = step;
-        }
-    }
-    private boolean isConvertable(String src, String dst) {
-        char[] srcArr = src.toCharArray();
-        char[] dstArr = dst.toCharArray();
-        
-        int diff = 0;
-        for (int i=0; i<srcArr.length; i++) {
-            if (srcArr[i] != dstArr[i]) diff++;
-        }
-        return diff == 1;
-    }
-    
     public int solution(String begin, String target, String[] words) {
-        boolean[] isVisited = new boolean[words.length];
-        Queue<State> queue = new LinkedList<>();
-        queue.add(new State(begin, 0));
+        if (!Arrays.asList(words).contains(target)) {
+            return 0;
+        }
+        Queue<Word> queue = new LinkedList<>();
+        boolean[] visited = new boolean[words.length];
+        queue.add(new Word(begin, 0));
         
         while (!queue.isEmpty()) {
-            State state = queue.poll();
+            Word current = queue.poll();
             
-            if (state.word.equals(target)) {
-                return state.step;
+            if (current.word.equals(target)) {
+                return current.step;
             }
             for (int i=0; i<words.length; i++) {
-                String next = words[i];
-                
-                if (!isConvertable(state.word, next)) {
-                    continue;
+                if (!visited[i] && canConvert(current.word, words[i])) {
+                    visited[i] = true;
+                    queue.add(new Word(words[i], current.step+1));
                 }
-                if (isVisited[i]) {
-                    continue;
-                }
-                isVisited[i] = true;
-                queue.add(new State(next, state.step+1));
             }
         }
         return 0;
+    }
+    private boolean canConvert(String a, String b) {
+        int diff = 0;
+        for (int i=0; i<a.length(); i++) {
+            if (a.charAt(i) != b.charAt(i)) {
+                diff++;
+            }
+            if (diff > 1) return false;
+        }
+        return diff == 1;
+    }
+    private class Word {
+        String word;
+        int step;
+        Word(String word, int step) {
+            this.word = word;
+            this.step = step;
+        }
     }
 }
