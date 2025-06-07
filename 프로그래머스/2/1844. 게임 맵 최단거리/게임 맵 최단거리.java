@@ -1,48 +1,43 @@
 import java.util.*;
 
 class Solution {
-    private static class State {
-        public final int x;
-        public final int y;
-        public final int step;
-        
-        private State(int x, int y, int step) {
-            this.x = x;
-            this.y = y;
-            this.step = step;
-        }
-    }
-    private static final int[] dx = {0, 1, 0, -1};
-    private static final int[] dy = {-1, 0, 1, 0};
-    
     public int solution(int[][] maps) {
-        boolean[][] isVisited = new boolean[maps.length][maps[0].length];
-        Queue<State> queue = new LinkedList<>();
-        queue.add(new State(0, 0, 1));
-        isVisited[0][0] = true;
-        
+        int n = maps.length;
+        int m = maps[0].length;
+
+        // 이동 방향: 상하좌우
+        int[] dx = {0, 0, 1, -1};
+        int[] dy = {1, -1, 0, 0};
+
+        // 방문 및 거리 저장용
+        boolean[][] visited = new boolean[n][m];
+        Queue<int[]> queue = new LinkedList<>();
+
+        // 시작점
+        queue.add(new int[]{0, 0});
+        visited[0][0] = true;
+
         while (!queue.isEmpty()) {
-            State state = queue.poll();
-            if (state.y == maps.length-1 && state.x == maps[state.y].length-1) {
-                return state.step;
-            }
-            for (int d=0; d<4; d++) {
-                int nx = state.x + dx[d];
-                int ny = state.y + dy[d];
-                
-                if (ny <0 || ny >= maps.length || nx <0 || nx >= maps[ny].length) {
-                    continue;
+            int[] pos = queue.poll();
+            int x = pos[0];
+            int y = pos[1];
+
+            for (int i=0; i<4; i++) {
+                int nx = x + dx[i];
+                int ny = y + dy[i];
+
+                // 범위 체크 및 갈 수 있는 곳인지, 방문했는지 확인
+                if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
+                    if (maps[nx][ny] == 1 && !visited[nx][ny]) {
+                        // 거리 누적: 이전 거리 + 1
+                        maps[nx][ny] = maps[x][y] +1;
+                        visited[nx][ny] = true;
+                        queue.add(new int[]{nx, ny});
+                    }
                 }
-                if (maps[ny][nx] !=1) {
-                    continue;
-                }
-                if (isVisited[ny][nx]) {
-                    continue;
-                }
-                isVisited[ny][nx] = true;
-                queue.add(new State(nx, ny, state.step+1));
             }
         }
-        return -1;
+        int answer = maps[n-1][m-1];
+        return answer == 1 ? -1 : answer;
     }
 }
