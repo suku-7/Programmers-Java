@@ -1,6 +1,8 @@
 import java.util.*;
 
-class Solution {
+
+
+class Solution {   
     public int solution(int n, int[][] computers) {
         boolean[] visited = new boolean[n];
         int answer = 0;
