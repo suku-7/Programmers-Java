@@ -8,33 +8,30 @@ class Solution {
     static int[] dy = {1, -1, 0, 0};
     
     public int solution(int[][] rectangle, int characterX, int characterY, int itemX, int itemY) {
-        // 좌표 2배 확장
         for (int[] rect : rectangle) {
             int x1 = rect[0] * 2;
             int y1 = rect[1] * 2;
             int x2 = rect[2] * 2;
             int y2 = rect[3] * 2;
-            // 내부 채우기
+            
             for (int i=x1; i<=x2; i++) {
                 for (int j=y1; j<=y2; j++) {
-                    map[i][j] = true;
+                    map[i][j]= true;
                 }
             }
         }
-        // 테두리만 남기기
         for (int[] rect : rectangle) {
             int x1 = rect[0] * 2;
             int y1 = rect[1] * 2;
             int x2 = rect[2] * 2;
             int y2 = rect[3] * 2;
-            // 내부 채우기
+            
             for (int i=x1+1; i<x2; i++) {
                 for (int j=y1+1; j<y2; j++) {
-                    map[i][j] = false;
+                    map[i][j]= false;
                 }
             }
         }
-        // BFS 시작
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[] {characterX * 2, characterY * 2, 0});
         visited[characterX * 2][characterY * 2] = true;
@@ -53,7 +50,7 @@ class Solution {
                 int ny = y + dy[i];
                 
                 if (nx >= 0 && ny >= 0 && nx < SIZE && ny < SIZE) {
-                    if (!visited[nx][ny] == map[nx][ny]) {
+                    if (!visited[nx][ny] && map[nx][ny]) {
                         visited[nx][ny] = true;
                         queue.add(new int[]{nx, ny, dist+1});
                     }
