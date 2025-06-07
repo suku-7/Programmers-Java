@@ -25,12 +25,11 @@ class Solution {
                 
                 if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
                     if (maps[nx][ny] == 1 && !visited[nx][ny]) {
-                        maps[nx][ny] = maps[x][y] +1;
+                        maps[nx][ny] = maps[x][y]+1;
                         visited[nx][ny] = true;
                         queue.add(new int[]{nx, ny});
                         
-                        // 도착점에 도착했으면 바로 거리 반환하며 종료
-                        if (nx == n - 1 && ny == m - 1) {
+                        if (nx == n-1 && ny == m-1) {
                             return maps[nx][ny];
                         }
                     }
