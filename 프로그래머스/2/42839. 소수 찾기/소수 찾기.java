@@ -2,6 +2,7 @@ import java.util.*;
 
 class Solution {
     Set<Integer> numberSet = new HashSet<>();
+    
     public int solution(String numbers) {
         permutation("", numbers);
         
@@ -25,7 +26,9 @@ class Solution {
         if (num < 2) return false;
         int sqrt = (int) Math.sqrt(num);
         for (int i=2; i<=sqrt; i++) {
-            if (num % i == 0) return false;
+            if (num % i == 0) {
+                return false;
+            }
         }
         return true;
     }
