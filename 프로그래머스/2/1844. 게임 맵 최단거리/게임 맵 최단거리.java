@@ -5,8 +5,8 @@ class Solution {
         int n = maps.length;
         int m = maps[0].length;
         
-        int[] dx = {0, 0, 1, -1};
-        int[] dy = {1, -1, 0, 0};
+        int[] dx = {-1, 1, 0, 0};
+        int[] dy = {0, 0, -1, 1};
         
         boolean[][] visited = new boolean[n][m];
         Queue<int[]> queue = new LinkedList<>();
@@ -25,18 +25,18 @@ class Solution {
                 
                 if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
                     if (maps[nx][ny] == 1 && !visited[nx][ny]) {
-                        maps[nx][ny] = maps[x][y]+1;
+                        maps[nx][ny] = maps[x][y] +1;
                         visited[nx][ny] = true;
                         queue.add(new int[]{nx, ny});
+                        
+                        // 도착점에 도착했으면 바로 거리 반환하며 종료
+                        if (nx == n - 1 && ny == m - 1) {
+                            return maps[nx][ny];
+                        }
                     }
                 }
             }
         }
-        int answer = maps[n-1][m-1];
-        if (answer == 1) {
-            return -1;
-        } else {
-            return answer;
-        }
+        return -1;
     }
 }
