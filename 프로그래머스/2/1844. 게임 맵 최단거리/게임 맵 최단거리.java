@@ -12,9 +12,9 @@ class Solution {
         Queue<int[]> queue = new LinkedList<>();
         
         visited[0][0] = true;
-        queue.add(new int[] {0, 0});
+        queue.add(new int[]{0, 0});
         
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             int[] current = queue.poll();
             int x = current[0];
             int y = current[1];
