@@ -33,8 +33,8 @@ class Solution {
             }
         }
         Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{characterX * 2, characterY * 2, 0});
         visited[characterX * 2][characterY * 2] = true;
+        queue.add(new int[]{characterX * 2, characterY * 2, 0});
         
         while (!queue.isEmpty()) {
             int[] current = queue.poll();
@@ -42,10 +42,9 @@ class Solution {
             int y = current[1];
             int dist = current[2];
             
-            if (itemX * 2 == x && itemY * 2 ==y) {
+            if (itemX * 2 == x && itemY * 2 == y) {
                 return dist/2;
             }
-            
             for (int i=0; i<4; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
@@ -53,10 +52,10 @@ class Solution {
                 if (nx >= 0 && ny >= 0 && nx < SIZE && ny < SIZE) {
                     if (!visited[nx][ny] && map[nx][ny]) {
                         visited[nx][ny] = true;
-                        queue.add(new int[] {nx, ny, dist+1});
+                        queue.add(new int[]{nx, ny, dist+1});
                     }
                 }
-            } 
+            }
         }
         return 0;
     }
