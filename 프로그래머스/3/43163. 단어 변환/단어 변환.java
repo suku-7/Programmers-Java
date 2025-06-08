@@ -9,13 +9,13 @@ class Solution {
             this.step = step;
         }
     }
+    
     public int solution(String begin, String target, String[] words) {
-
         boolean[] visited = new boolean[words.length];
         Queue<Word> queue = new LinkedList<>();
         queue.add(new Word(begin, 0));
         
-        while (!queue.isEmpty()) {
+        while(!queue.isEmpty()) {
             Word current = queue.poll();
             
             if (current.word.equals(target)) {
@@ -25,8 +25,8 @@ class Solution {
                 if (!visited[i] && canConvert(current.word, words[i])) {
                     visited[i] = true;
                     queue.add(new Word(words[i], current.step+1));
-                }
-            }
+                }         
+            }   
         }
         return 0;
     }
@@ -36,7 +36,9 @@ class Solution {
             if (a.charAt(i) != b.charAt(i)) {
                 diff++;
             }
-            if (diff >1 ) return false;
+        }
+        if (diff > 1) {
+            return false;
         }
         return diff == 1;
     }
