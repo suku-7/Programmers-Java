@@ -1,6 +1,7 @@
 import java.util.*;
 
 
+
 class Solution {
     List<String> answer = new ArrayList<>();
     boolean[] used;
@@ -16,7 +17,6 @@ class Solution {
             }
             return a[0].compareTo(b[0]);
         });
-        
         List<String> path = new ArrayList<>();
         path.add("ICN");
         
@@ -37,7 +37,7 @@ class Solution {
                 used[i] = true;
                 path.add(tickets[i][1]);
                 dfs(tickets[i][1], tickets, path, count+1);
-                path.remove(path.size() - 1);
+                path.remove(path.size()-1);
                 used[i] = false;
             }
         }
