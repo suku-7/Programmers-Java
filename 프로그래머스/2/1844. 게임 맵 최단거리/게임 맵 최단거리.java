@@ -6,12 +6,12 @@ class Solution {
         int m = maps[0].length;
         
         int[] dx = {-1, 1, 0, 0};
-        int[] dy = {0, 0, 1, -1};
+        int[] dy = {0, 0, -1, 1};
         
         boolean[][] visited = new boolean[n][m];
         Queue<int[]> queue = new LinkedList<>();
         
-        queue.add(new int[]{0, 0});
+        queue.add(new int[] {0, 0});
         visited[0][0] = true;
         
         while (!queue.isEmpty()) {
@@ -25,7 +25,7 @@ class Solution {
                 
                 if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
                     if (!visited[nx][ny] && maps[nx][ny] == 1) {
-                        maps[nx][ny] = maps[x][y]+1;
+                        maps[nx][ny] = maps[x][y] + 1;
                         visited[nx][ny] = true;
                         queue.add(new int[]{nx, ny});
                         
