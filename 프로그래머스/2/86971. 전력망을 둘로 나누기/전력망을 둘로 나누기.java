@@ -8,9 +8,8 @@ class Solution {
             List<List<Integer>> graph = new ArrayList<>();
             
             for (int j=0; j<=n; j++) {
-                graph.add(new ArrayList<>());                
+                graph.add(new ArrayList<>());
             }
-            
             for (int j=0; j<wires.length; j++) {
                 if (i == j) continue;
                 int a = wires[j][0];
