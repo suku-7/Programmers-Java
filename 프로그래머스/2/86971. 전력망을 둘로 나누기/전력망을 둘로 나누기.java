@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class Solution {
     int answer = Integer.MAX_VALUE;
     
@@ -26,12 +27,13 @@ class Solution {
     private int bfs(List<List<Integer>> graph, int n, int start) {
         boolean[] visited = new boolean[n+1];
         Queue<Integer> queue = new LinkedList<>();
-        queue.add(start);
         visited[start] = true;
-        
+        queue.add(start);
         int count = 1;
+        
         while (!queue.isEmpty()) {
             int current = queue.poll();
+            
             for (int next : graph.get(current)) {
                 if (!visited[next]) {
                     visited[next] = true;
