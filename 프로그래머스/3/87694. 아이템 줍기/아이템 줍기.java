@@ -33,7 +33,7 @@ class Solution {
             }
         }
         Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{characterX * 2, characterY *2, 0});
+        queue.add(new int[] {characterX * 2, characterY * 2, 0});
         visited[characterX * 2][characterY * 2] = true;
         
         while (!queue.isEmpty()) {
@@ -45,7 +45,6 @@ class Solution {
             if (x == itemX * 2 && y == itemY * 2) {
                 return dist/2;
             }
-            
             for (int i=0; i<4; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
