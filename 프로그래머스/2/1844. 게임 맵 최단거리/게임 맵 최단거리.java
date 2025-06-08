@@ -11,8 +11,8 @@ class Solution {
         boolean[][] visited = new boolean[n][m];
         Queue<int[]> queue = new LinkedList<>();
         
-        queue.add(new int[] {0, 0});
         visited[0][0] = true;
+        queue.add(new int[]{0, 0});
         
         while (!queue.isEmpty()) {
             int[] current = queue.poll();
@@ -24,10 +24,10 @@ class Solution {
                 int ny = y + dy[i];
                 
                 if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
-                    if (!visited[nx][ny] && maps[nx][ny] == 1) {
-                        maps[nx][ny] = maps[x][y] + 1;
+                    if (!visited[nx][ny] && maps[nx][ny] ==1) {
                         visited[nx][ny] = true;
-                        queue.add(new int[]{nx, ny});
+                        maps[nx][ny] = maps[x][y]+1;
+                        queue.add(new int[] {nx, ny});
                         
                         if (nx == n-1 && ny == m-1) {
                             return maps[nx][ny];
