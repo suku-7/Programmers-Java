@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class Solution {
     HashSet<Integer> numberSet = new HashSet<>();
     
@@ -22,6 +23,7 @@ class Solution {
             permutation(prefix+remain.charAt(i), remain.substring(0, i)+remain.substring(i+1));
         }
     }
+    
     private boolean isPrime(int num) {
         if (num < 2) return false;
         int sqrt = (int) Math.sqrt(num);
