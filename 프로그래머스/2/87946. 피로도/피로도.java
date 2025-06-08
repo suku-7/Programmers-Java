@@ -6,7 +6,6 @@ class Solution {
     
     public int solution(int k, int[][] dungeons) {
         visited = new boolean[dungeons.length];
-        
         dfs(0, k, dungeons);
         return max;
     }
