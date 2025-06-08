@@ -1,12 +1,11 @@
 import java.util.*;
 
-
 class Solution {
     int answer = Integer.MAX_VALUE;
     
     public int solution(int n, int[][] wires) {
         for (int i=0; i<wires.length; i++) {
-            List<List<Integer>> graph = new ArrayList<>();
+            List<List<Integer>> graph = new ArrayList<>();   
             
             for (int j=0; j<=n; j++) {
                 graph.add(new ArrayList<>());
@@ -24,13 +23,13 @@ class Solution {
         }
         return answer;
     }
-    private int bfs(List<List<Integer>> graph, int n, int start) {
+    private int bfs(List<List<Integer>>graph, int n, int start) {
         boolean[] visited = new boolean[n+1];
         Queue<Integer> queue = new LinkedList<>();
         visited[start] = true;
         queue.add(start);
-        int count = 1;
         
+        int count = 1;
         while (!queue.isEmpty()) {
             int current = queue.poll();
             
@@ -43,5 +42,5 @@ class Solution {
             }
         }
         return count;
-    }
+    } 
 }
