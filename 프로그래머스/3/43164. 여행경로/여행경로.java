@@ -1,7 +1,5 @@
 import java.util.*;
 
-
-
 class Solution {
     List<String> answer = new ArrayList<>();
     boolean[] used;
