@@ -2,17 +2,16 @@ import java.util.*;
 
 class Solution {
     HashSet<Integer> numberSet = new HashSet<>();
-        
     public int solution(String numbers) {
         permutation("", numbers);
         
-        int count = 0;
+        int answer = 0;
         for (int num : numberSet) {
             if (isPrime(num)) {
-                count++;
+                answer++;
             }
         }
-        return count;
+        return answer;
     }
     private void permutation(String prefix, String remain) {
         if (!prefix.equals("")) {
