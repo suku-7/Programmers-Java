@@ -1,22 +1,18 @@
-import java.util.*;
-
-
 class Solution {
-    int answer = 0;
-    
+    int count =0;
     public int solution(int[] numbers, int target) {
-        dfs(numbers, target, 0, 0);
-        
-        return answer;
+        dfs(0, target, 0, numbers);
+        return count;
     }
-    private void dfs(int[] numbers, int target, int depth, int sum) {
+    private void dfs(int depth, int target, int sum, int[] numbers) {
         if (depth == numbers.length) {
             if (target == sum) {
-                answer++;
+                count++;
             }
             return;
         }
-        dfs(numbers, target, depth+1, sum+numbers[depth]);
-        dfs(numbers, target, depth+1, sum-numbers[depth]);
+
+        dfs(depth+1, target, sum+numbers[depth], numbers);
+        dfs(depth+1, target, sum-numbers[depth], numbers);
     }
 }
