@@ -6,7 +6,6 @@ class Solution {
     
     public int solution(String word) {
         dfs("", 0);
-        
         return wordList.indexOf(word)+1;
     }
     private void dfs(String current, int depth) {
@@ -15,6 +14,7 @@ class Solution {
         if (!current.equals("")) {
             wordList.add(current);
         }
+        
         for (String v : vowels) {
             dfs(current+v, depth+1);
         }
