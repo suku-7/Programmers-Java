@@ -1,7 +1,8 @@
 import java.util.*;
 
 class Solution {
-    HashSet<Integer> numberSet = new HashSet<>(); 
+    HashSet<Integer> numberSet = new HashSet<>();
+    
     public int solution(String numbers) {
         permutation("", numbers);
         
@@ -13,13 +14,12 @@ class Solution {
         }
         return count;
     }
-    private void permutation(String prefix, String remain) {
-        if (!prefix.equals("")) {
-            numberSet.add(Integer.parseInt(prefix));
+    private void permutation(String current, String remain) {
+        if (!current.equals("")) {
+            numberSet.add(Integer.parseInt(current));
         }
-        
         for (int i=0; i<remain.length(); i++) {
-            permutation(prefix+remain.charAt(i), remain.substring(0, i)+remain.substring(i+1));
+            permutation(current+remain.charAt(i), remain.substring(0, i)+remain.substring(i+1));
         }
     }
     private boolean isPrime(int num) {
@@ -32,4 +32,4 @@ class Solution {
         }
         return true;
     }
-}
+} 
