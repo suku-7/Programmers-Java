@@ -4,7 +4,6 @@ class Solution {
     static final int SIZE = 102;
     static boolean[][] map = new boolean[SIZE][SIZE];
     static boolean[][] visited = new boolean[SIZE][SIZE];
-    
     static int[] dx = {0, 0, 1, -1};
     static int[] dy = {1, -1, 0, 0};
     
@@ -45,7 +44,7 @@ class Solution {
             
             if (x == itemX * 2 && y == itemY * 2) {
                 return dist/2;
-            }
+            } 
             for (int i=0; i<4; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
@@ -53,7 +52,7 @@ class Solution {
                 if (nx >= 0 && ny >= 0 && nx < SIZE && ny < SIZE) {
                     if (!visited[nx][ny] && map[nx][ny]) {
                         visited[nx][ny] = true;
-                        queue.add(new int[] {nx, ny, dist+1});
+                        queue.add(new int[]{nx, ny, dist+1});
                     }
                 }
             }
