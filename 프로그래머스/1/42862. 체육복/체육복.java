@@ -1,35 +1,27 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
-        Arrays.sort(lost);
-        Arrays.sort(reserve);
+        Set<Integer> lostSet = new HashSet<>();
+        Set<Integer> reserveSet = new HashSet<>();
         
-        Set<Integer> owns = Arrays.stream(lost)
-                .boxed()
-                .collect(Collectors.toSet());
-        owns.retainAll(Arrays.stream(reserve)
-                .boxed()
-                .collect(Collectors.toSet()));
-        Queue<Integer> q = new LinkedList<>();
-        for (int l : lost) q.add(l);
+        for (int l : lost) lostSet.add(l);
+        for (int r : reserve) reserveSet.add(r);
         
-        int get = 0;
-        for (int r : reserve) {
-            if (owns.contains(r)) {
-                continue;
-            }
-            while (!q.isEmpty() && (q.peek() < r-1 || owns.contains(q.peek()))) {
-                q.poll();
-            }
-            if (q.isEmpty()) break;
-            
-            if (q.peek() <= r+1) {
-                q.poll();
-                get++;
+        Set<Integer> realLost = new HashSet<>(lostSet);
+        for (int student : lost) {
+            if (reserveSet.contains(student)) {
+                realLost.remove(student);
+                reserveSet.remove(student);
             }
         }
-        return n - lost.length + owns.size() + get;
+        for (int r : reserveSet) {
+            if (realLost.contains(r-1)) {
+                realLost.remove(r-1);
+            } else if (realLost.contains(r+1)) {
+                realLost.remove(r+1);
+            }
+        }
+        return n - realLost.size();
     }
 }
