@@ -1,21 +1,24 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 class Solution {
     public String solution(String number, int k) {
         Stack<Character> stack = new Stack<>();
+        
         for (char c : number.toCharArray()) {
-            while (k > 0 && !stack.isEmpty() && c > stack.peek()) {
+            while (!stack.isEmpty() && k > 0 && stack.peek() < c) {
                 stack.pop();
                 k--;
             }
             stack.push(c);
         }
-        while (k-- > 0) {
+        while (k > 0) {
             stack.pop();
+            k--;
         }
-        return stack.stream()
-                .map(String::valueOf)
-                .collect(Collectors.joining());
+        StringBuilder sb = new StringBuilder();
+        for (char c : stack) {
+            sb.append(c);
+        }
+        return sb.toString();
     }
 }
