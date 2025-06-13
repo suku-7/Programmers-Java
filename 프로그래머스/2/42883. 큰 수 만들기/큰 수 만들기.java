@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class Solution {
     public String solution(String number, int k) {
         Stack<Character> stack = new Stack<>();
