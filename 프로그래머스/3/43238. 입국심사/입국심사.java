@@ -8,9 +8,10 @@ class Solution {
         }
         return c >= n;
     }
+
     public long solution(int n, int[] times) {
         long start = 1;
-        long end = (long) Arrays.stream(times).max().getAsInt() * n;
+        long end = (long) Arrays.stream(times).max().getAsInt()*n;
         
         while (end > start) {
             long t = (start + end)/2;
