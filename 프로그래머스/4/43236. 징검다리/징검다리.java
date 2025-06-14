@@ -20,10 +20,10 @@ class Solution {
         Arrays.sort(rocks);
         
         int start = 1;
-        int end = distance + 1;
+        int end = distance +1;
         
         while (end - start > 1) {
-            int d = (start + end) / 2;
+            int d = (start+end)/2;
             if (isValid(d, rocks, n)) {
                 start = d;
             } else {
