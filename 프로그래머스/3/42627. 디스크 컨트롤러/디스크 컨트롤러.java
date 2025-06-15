@@ -1,40 +1,30 @@
 import java.util.*;
 
 class Solution {
-    private static class Job {
-        public final int start;
-        public final int duration;
-        
-        private Job(int start, int duration) {
-            this.start = start;
-            this.duration = duration;
-        }
-    }
-    
-    public int solution(int[][] rawJobs) {
-        Job[] jobs = new Job[rawJobs.length];
-        for (int i=0; i<jobs.length; i++) {
-            jobs[i] = new Job(rawJobs[i][0], rawJobs[i][1]);
-        }
-        Arrays.sort(jobs, Comparator.comparingInt(job -> job.start));
-        Queue<Job> queue = new LinkedList<>(Arrays.asList(jobs));
-        PriorityQueue<Job> heap = new PriorityQueue<>(Comparator.comparingInt(job -> job.duration));
-        
-        int exec = 0;
+    public int solution(int[][] jobs) {
+        Arrays.sort(jobs, Comparator.comparingInt(j -> j[0]));
+        PriorityQueue<int[]> heap = new PriorityQueue<>(
+            Comparator.comparingInt(j -> j[1])
+        );
         int time = 0;
+        int total = 0;
+        int index = 0;
+        int count = 0;
         
-        while (!queue.isEmpty() || !heap.isEmpty()) {
-            while (!queue.isEmpty() && queue.peek().start <= time) {
-                heap.add(queue.poll());
+        while (count < jobs.length) {
+            while (index < jobs.length && jobs[index][0] <= time) {
+                heap.add(jobs[index]);
+                index++;
             }
             if (heap.isEmpty()) {
-                time = queue.peek().start;
-                continue;
+                time = jobs[index][0];
+            } else {
+                int[] job = heap.poll();
+                time += job[1];
+                total += time - job[0];
+                count++;
             }
-            Job job = heap.poll();
-            exec += time + job.duration - job.start;
-            time += job.duration;
         }
-        return exec / jobs.length;
+        return total / jobs.length;
     }
 }
