@@ -5,9 +5,9 @@ class Solution {
         Stack<Character> stack = new Stack<>();
         
         for (char c : number.toCharArray()) {
-            while (!stack.isEmpty() && k >0 && stack.peek() < c) {
-                stack.pop();
+            while (!stack.isEmpty() && k > 0 && stack.peek() < c) {
                 k--;
+                stack.pop();
             }
             stack.push(c);
         }
@@ -16,6 +16,7 @@ class Solution {
             k--;
         }
         StringBuilder sb = new StringBuilder();
+        
         for (char c : stack) {
             sb.append(c);
         }
