@@ -5,14 +5,14 @@ class Solution {
         Arrays.sort(people);
         int left = 0;
         int right = people.length-1;
-        int boats = 0;
+        int boats = 0;        
         
         while (left <= right) {
-            if (people[left] + people[right] <= limit) {
+            if (people[left] + people[right] <=limit) {
                 left++;
             }
-            right--;
             boats++;
+            right--;
         }
         return boats;
     }
