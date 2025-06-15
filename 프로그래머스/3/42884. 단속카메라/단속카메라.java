@@ -8,10 +8,10 @@ class Solution {
         
         for (int[] route : routes) {
             if (last >= route[0] && last <= route[1]) continue;
+            
             last = route[1];
             count++;
         }
         return count;
     }
-
 }
