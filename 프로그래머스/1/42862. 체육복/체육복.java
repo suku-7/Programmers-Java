@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
         Set<Integer> lostSet = new HashSet<>();
@@ -10,10 +9,10 @@ class Solution {
         for (int r : reserve) reserveSet.add(r);
         
         Set<Integer> realLost = new HashSet<>(lostSet);
-        for (int student : lost) {
-            if (reserveSet.contains(student)) {
-                realLost.remove(student);
-                reserveSet.remove(student);
+        for (int l : lost) {
+            if (reserveSet.contains(l)) {
+                realLost.remove(l);
+                reserveSet.remove(l);
             }
         }
         for (int r : reserveSet) {
