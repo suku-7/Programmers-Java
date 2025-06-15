@@ -1,26 +1,25 @@
 import java.util.*;
 
 class Solution {
-    private boolean isValid(long t, int n, int[] times) {
-        long c = 0;
-        for (int time : times) {
-            c += t / time;
-        }
-        return c >= n;
-    }
-
     public long solution(int n, int[] times) {
-        long start = 1;
-        long end = (long) Arrays.stream(times).max().getAsInt()*n;
+        long left = 1;
+        long right = (long) times[times.length-1] * n;
+        long answer = right;
         
-        while (end > start) {
-            long t = (start + end)/2;
-            if (isValid(t, n, times)) {
-                end = t;
+        while (left <= right) {
+            long mid = (left + right) / 2;
+            long people = 0;
+            
+            for (int time : times) {
+                people += mid / time;
+            }
+            if (people >= n) {
+                answer = mid;
+                right = mid - 1;
             } else {
-                start = t+1;
+                left = mid + 1;
             }
         }
-        return start;
+        return answer;
     }
 }
