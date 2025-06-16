@@ -3,6 +3,7 @@ import java.util.*;
 class Solution {
     public int solution(int[][] jobs) {
         Arrays.sort(jobs, Comparator.comparingInt(j -> j[0]));
+        
         PriorityQueue<int[]> heap = new PriorityQueue<>(
             Comparator.comparingInt(j -> j[1])
         );
@@ -16,6 +17,7 @@ class Solution {
                 heap.add(jobs[index]);
                 index++;
             }
+            
             if (heap.isEmpty()) {
                 time = jobs[index][0];
             } else {
