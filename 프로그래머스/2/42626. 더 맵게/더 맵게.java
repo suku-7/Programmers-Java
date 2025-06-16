@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class Solution {
     public int solution(int[] scoville, int K) {
         PriorityQueue<Integer> heap = new PriorityQueue<>();
@@ -8,7 +9,6 @@ class Solution {
             heap.add(s);
         }
         int count = 0;
-        
         while (heap.size() >= 2 && heap.peek() < K) {
             int first = heap.poll();
             int second = heap.poll();
