@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class Solution {
     public int[] solution(String[] operations) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
@@ -17,12 +18,12 @@ class Solution {
                 countMap.put(num, countMap.getOrDefault(num, 0)+1);
             } else if (command.equals("D")) {
                 if (countMap.isEmpty()) continue;
-                              
-                PriorityQueue<Integer> targetHeap = (num == 1) ? maxHeap : minHeap;
+                
+                PriorityQueue<Integer> targetHeap = (num==1) ? maxHeap : minHeap;
                 while (!targetHeap.isEmpty()) {
                     int val = targetHeap.poll();
                     if (countMap.containsKey(val)) {
-                        if (countMap.get(val) == 1) {
+                        if(countMap.get(val) == 1) {
                             countMap.remove(val);
                         } else {
                             countMap.put(val, countMap.get(val)-1);
@@ -39,6 +40,6 @@ class Solution {
             minHeap.poll();
         }
         if (countMap.isEmpty()) return new int[]{0, 0};
-        return new int[]{maxHeap.peek(), minHeap.peek()};
+        return new int[] {maxHeap.peek(), minHeap.peek()};
     }
 }
