@@ -1,45 +1,26 @@
 import java.util.*;
 
-
 class Solution {
     public int[] solution(String[] operations) {
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-        Map<Integer, Integer> countMap = new HashMap<>();
-        
-        for (String op : operations) {
-            String[] parts = op.split(" ");
-            String command = parts[0];
-            int num = Integer.parseInt(parts[1]);
-            
-            if (command.equals("I")) {
-                minHeap.add(num);
-                maxHeap.add(num);
-                countMap.put(num, countMap.getOrDefault(num, 0)+1);
-            } else if (command.equals("D")) {
-                if (countMap.isEmpty()) continue;
-                
-                PriorityQueue<Integer> targetHeap = (num==1) ? maxHeap : minHeap;
-                while (!targetHeap.isEmpty()) {
-                    int val = targetHeap.poll();
-                    if (countMap.containsKey(val)) {
-                        if(countMap.get(val) == 1) {
-                            countMap.remove(val);
-                        } else {
-                            countMap.put(val, countMap.get(val)-1);
-                        }
-                        break;
-                    }
-                }
+        Queue<Integer> minpq = new PriorityQueue<>();
+        Queue<Integer> maxpq = new PriorityQueue<>(Collections.reverseOrder());
+
+        for (String operation : operations) {
+            if (operation.startsWith("I ")) {
+                int n = Integer.parseInt(operation.substring(2));
+                minpq.offer(n);
+                maxpq.offer(n);
+            } else if (!minpq.isEmpty() && operation.equals("D -1")) {
+                maxpq.remove(minpq.poll());
+            } else if (!maxpq.isEmpty() && operation.equals("D 1")) {
+                minpq.remove(maxpq.poll());
             }
         }
-        while (!maxHeap.isEmpty() && !countMap.containsKey(maxHeap.peek())) {
-            maxHeap.poll();
+
+        if (minpq.isEmpty() && maxpq.isEmpty()) {
+            return new int[]{0, 0};
         }
-        while (!minHeap.isEmpty() && !countMap.containsKey(minHeap.peek())) {
-            minHeap.poll();
-        }
-        if (countMap.isEmpty()) return new int[]{0, 0};
-        return new int[] {maxHeap.peek(), minHeap.peek()};
+
+        return new int[]{maxpq.poll(), minpq.poll()};
     }
 }
