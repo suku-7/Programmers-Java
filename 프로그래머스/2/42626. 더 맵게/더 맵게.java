@@ -7,8 +7,8 @@ class Solution {
         for (int s : scoville) {
             heap.add(s);
         }
-        
         int count = 0;
+        
         while (heap.size() >= 2 && heap.peek() < K) {
             int first = heap.poll();
             int second = heap.poll();
