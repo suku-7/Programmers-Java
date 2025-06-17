@@ -13,6 +13,7 @@ class Solution {
             for (int time : times) {
                 people += mid / time;
             }
+            
             if (people >= n) {
                 answer = mid;
                 right = mid - 1;
