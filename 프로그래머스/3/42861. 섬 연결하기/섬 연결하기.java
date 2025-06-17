@@ -1,62 +1,47 @@
 import java.util.*;
 
 class Solution {
-    private static class Node {
-        private int depth = 1;
-        private Node parent = null;
-        
-        public boolean isConnected(Node o) {
-            return root() == o.root();
-        }
-        public void merge(Node o) {
-            if (isConnected(o)) return;
-            Node root1 = root();
-            Node root2 = o.root();
-            
-            if (root1.depth > root2.depth) {
-                root2.parent = root1;
-            } else if (root1.depth < root2.depth) {
-                root1.parent = root2;
-            } else {
-                root2.parent = root1;
-                root1.depth += 1;
+    public int solution(int n, int[][] costs) {
+        // 비용 기준으로 간선 정렬
+        Arrays.sort(costs, (a, b) -> a[2] - b[2]);
+
+        // 유니온 파인드를 위한 parent 배열
+        int[] parent = new int[n];
+        for (int i = 0; i < n; i++) parent[i] = i;
+
+        int answer = 0;
+        int count = 0;
+
+        for (int[] cost : costs) {
+            int a = cost[0];
+            int b = cost[1];
+            int c = cost[2];
+
+            // 싸이클이 생기지 않으면 연결
+            if (find(parent, a) != find(parent, b)) {
+                union(parent, a, b);
+                answer += c;
+                count++;
+
+                // n-1개의 간선만 필요함
+                if (count == n - 1) break;
             }
         }
-        private Node root() {
-            if (parent == null) return this;
-            return parent.root();
-        }
+
+        return answer;
     }
-    private static class Edge {
-        public final int u;
-        public final int v;
-        public final int cost;
-        
-        private Edge(int u, int v, int cost) {
-            this.u = u;
-            this.v = v;
-            this.cost = cost;
-        }
+
+    // 유니온 파인드 - find
+    private int find(int[] parent, int x) {
+        if (parent[x] == x) return x;
+        return parent[x] = find(parent, parent[x]); // 경로 압축
     }
-    public int solution(int n, int[][] costs) {
-        Edge[] edges = Arrays.stream(costs)
-                .map(edge -> new Edge(edge[0], edge[1], edge[2]))
-                .sorted(Comparator.comparingInt(e -> e.cost))
-                .toArray(Edge[]::new);
-        Node[] nodes = new Node[n];
-        for (int i=0; i<n; i++) {
-            nodes[i] = new Node();
-        }
-        
-        int totalCost = 0;
-        for (Edge edge : edges) {
-            Node node1 = nodes[edge.u];
-            Node node2 = nodes[edge.v];
-            
-            if(node1.isConnected(node2)) continue;
-            node1.merge(node2);
-            totalCost += edge.cost;
-        }
-        return totalCost;
+
+    // 유니온 파인드 - union
+    private void union(int[] parent, int a, int b) {
+        int rootA = find(parent, a);
+        int rootB = find(parent, b);
+        if (rootA < rootB) parent[rootB] = rootA;
+        else parent[rootA] = rootB;
     }
 }
