@@ -24,10 +24,10 @@ class Solution {
                 removed++;
             }
             if (removed > n) {
-                right = mid-1;
+                right = mid - 1;
             } else {
                 answer = mid;
-                left = mid+1;
+                left = mid + 1;
             }
         }
         return answer;
