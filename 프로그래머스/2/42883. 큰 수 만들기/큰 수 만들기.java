@@ -6,8 +6,8 @@ class Solution {
         
         for (char c : number.toCharArray()) {
             while (!stack.isEmpty() && k > 0 && stack.peek() < c) {
-                k--;
                 stack.pop();
+                k--;
             }
             stack.push(c);
         }
@@ -16,7 +16,6 @@ class Solution {
             k--;
         }
         StringBuilder sb = new StringBuilder();
-        
         for (char c : stack) {
             sb.append(c);
         }
