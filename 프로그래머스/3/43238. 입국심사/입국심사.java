@@ -1,9 +1,8 @@
 import java.util.*;
 
-
 class Solution {
     public long solution(int n, int[] times) {
-        long left = 0;
+        long left = 1;
         int maxTime = 0;
         for (int time : times) {
             maxTime = Math.max(maxTime, time);
@@ -20,9 +19,9 @@ class Solution {
             }
             if (people >= n) {
                 answer = mid;
-                right = mid-1;
+                right = mid - 1;
             } else {
-                left = mid+1;
+                left = mid + 1;
             }
         }
         return answer;
