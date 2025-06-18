@@ -9,6 +9,7 @@ class Solution {
         for (int r : reserve) reserveSet.add(r);
         
         Set<Integer> realLost = new HashSet<>(lostSet);
+        
         for (int l : lost) {
             if (reserveSet.contains(l)) {
                 reserveSet.remove(l);
