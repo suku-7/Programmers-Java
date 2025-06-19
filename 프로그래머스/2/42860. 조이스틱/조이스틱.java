@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int solution(String name) {
         int len = name.length();
@@ -18,7 +17,8 @@ class Solution {
             while (next < len && name.charAt(next) == 'A') {
                 next++;
             }
-            int leftRight = i + len - next + Math.min(i, len - next);
+            
+            int leftRight = i + len - next + Math.min(i, len-next);
             move = Math.min(move, leftRight);
         }
         answer += move;
