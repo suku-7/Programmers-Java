@@ -3,8 +3,7 @@ import java.util.*;
 class Solution {
     public int solution(int distance, int[] rocks, int n) {
         Arrays.sort(rocks);
-        
-        int left = 1;
+        int left = 0;
         int right = distance;
         int answer = 0;
         
