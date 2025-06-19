@@ -21,6 +21,6 @@ class Solution {
         if (minHeap.isEmpty() || maxHeap.isEmpty()) {
             return new int[] {0, 0};
         }
-        return new int[] {maxHeap.peek(), minHeap.peek()};
+        return new int[]{maxHeap.poll(), minHeap.poll()};
     }
 }
