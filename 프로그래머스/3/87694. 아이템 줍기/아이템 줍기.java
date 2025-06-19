@@ -44,7 +44,7 @@ class Solution {
             
             if (x == itemX * 2 && y == itemY * 2) {
                 return dist/2;
-            } 
+            }
             for (int i=0; i<4; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
