@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int solution(String name) {
         int len = name.length();
