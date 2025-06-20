@@ -1,8 +1,7 @@
 import java.util.*;
-
 class Solution {
     public int solution(int distance, int[] rocks, int n) {
-        int left = 1;
+        int left = 0;
         int right = distance;
         int answer = 0;
         Arrays.sort(rocks);
@@ -19,7 +18,6 @@ class Solution {
                     past = rocks[i];
                 }
             }
-            
             if (distance - past < mid) {
                 removed++;
             }
