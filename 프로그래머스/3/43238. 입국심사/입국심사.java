@@ -1,13 +1,14 @@
 import java.util.*;
+
 class Solution {
     public long solution(int n, int[] times) {
-        long left = 1;
+        long left = 0;
         int maxTime = 0;
         for (int time : times) {
             maxTime = Math.max(maxTime, time);
         }
         long right = (long) maxTime * n;
-        long answer = right;
+        long answer = 0;
         
         while (left <= right) {
             long mid = (left + right) / 2;
@@ -21,9 +22,9 @@ class Solution {
                 answer = mid;
                 right = mid - 1;
             } else {
-                left = mid + 1;
+                left = mid +1;
             }
-        }
+        }        
         return answer;
     }
 }
