@@ -14,6 +14,7 @@ class Solution {
         
         for (int i=0; i<len; i++) {
             int next = i + 1;
+            
             while (next < len && name.charAt(next) == 'A') {
                 next++;
             }
