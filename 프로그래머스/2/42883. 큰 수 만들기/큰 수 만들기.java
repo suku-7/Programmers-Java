@@ -11,7 +11,6 @@ class Solution {
             }
             stack.push(c);
         }
-        
         while (k > 0) {
             stack.pop();
             k--;
@@ -20,7 +19,6 @@ class Solution {
         for (char c : stack) {
             sb.append(c);
         }
-        
         return sb.toString();
     }
 }
