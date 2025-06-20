@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public long solution(int n, int[] times) {
         long left = 0;
@@ -8,7 +7,7 @@ class Solution {
             maxTime = Math.max(maxTime, time);
         }
         long right = (long) maxTime * n;
-        long answer = 0;
+        long answer = right;
         
         while (left <= right) {
             long mid = (left + right) / 2;
@@ -22,9 +21,9 @@ class Solution {
                 answer = mid;
                 right = mid - 1;
             } else {
-                left = mid +1;
+                left = mid + 1;
             }
-        }        
+        }
         return answer;
     }
 }
