@@ -2,8 +2,8 @@ import java.util.*;
 
 class Solution {
     static final int SIZE = 102;
-    static boolean[][] map = new boolean[SIZE][SIZE];
     static boolean[][] visited = new boolean[SIZE][SIZE];
+    static boolean[][] map = new boolean[SIZE][SIZE];
     static int[] dx = {0, 0, 1, -1};
     static int[] dy = {1, -1, 0, 0};
     
@@ -32,8 +32,9 @@ class Solution {
                 }
             }
         }
+        
         Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[] {characterX * 2, characterY * 2, 0});
+        queue.add(new int[]{characterX * 2, characterY * 2, 0});
         visited[characterX * 2][characterY * 2] = true;
         
         while (!queue.isEmpty()) {
@@ -52,7 +53,7 @@ class Solution {
                 if (nx >= 0 && ny >= 0 && nx < SIZE && ny < SIZE) {
                     if (!visited[nx][ny] && map[nx][ny]) {
                         visited[nx][ny] = true;
-                        queue.add(new int[]{nx, ny, dist+1});
+                        queue.add(new int[] {nx, ny, dist+1});
                     }
                 }
             }
