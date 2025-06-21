@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class Solution {
     static int SIZE = 102;
     static boolean[][] visited = new boolean[SIZE][SIZE];
@@ -49,7 +50,7 @@ class Solution {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
                 
-                if (nx >= 0 && nx >= 0 && nx < SIZE && ny < SIZE) {
+                if (nx >= 0 && ny >= 0 && nx < SIZE && ny < SIZE) {
                     if (!visited[nx][ny] && maps[nx][ny] == true) {
                         visited[nx][ny] = true;
                         
