@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     private class Word {
         String word;
@@ -16,13 +15,13 @@ class Solution {
         queue.add(new Word(begin, 0));
         
         if (!Arrays.asList(words).contains(target)) {
-            return 0; 
+            return 0;
         }
         
         while (!queue.isEmpty()) {
             Word current = queue.poll();
             
-            if (target.equals(current.word)) {
+            if (current.word.equals(target)) {
                 return current.step;
             }
             
