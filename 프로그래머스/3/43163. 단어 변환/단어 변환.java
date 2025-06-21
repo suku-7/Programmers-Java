@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Solution {
     private class Word {
         String word;
@@ -8,18 +9,20 @@ class Solution {
             this.step = step;
         }
     }
+    
     public int solution(String begin, String target, String[] words) {
-        
         Queue<Word> queue = new LinkedList<>();
         boolean[] visited = new boolean[words.length];
-        
         queue.add(new Word(begin, 0));
+        
+        if (!Arrays.asList(words).contains(target)) {
+            return 0; 
+        }
         
         while (!queue.isEmpty()) {
             Word current = queue.poll();
             
             if (target.equals(current.word)) {
-                System.out.println("확인용");
                 return current.step;
             }
             
