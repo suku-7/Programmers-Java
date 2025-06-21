@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
         HashSet<Integer> lostSet = new HashSet<>();
@@ -20,7 +19,7 @@ class Solution {
         for (int r : reserveSet) {
             if (realLost.contains(r-1)) {
                 realLost.remove(r-1);
-            } else if (realLost.remove(r+1)) {
+            } else if (realLost.contains(r+1)) {
                 realLost.remove(r+1);
             }
         }
