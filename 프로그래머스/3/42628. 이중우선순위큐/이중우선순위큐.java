@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int[] solution(String[] operations) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
@@ -14,7 +13,7 @@ class Solution {
                 maxHeap.add(num);
             } else if (operation.equals("D -1") && !minHeap.isEmpty()) {
                 int min = minHeap.poll();
-                maxHeap.remove(min);       
+                maxHeap.remove(min);
             } else if (operation.equals("D 1") && !maxHeap.isEmpty()) {
                 int max = maxHeap.poll();
                 minHeap.remove(max);
@@ -23,7 +22,6 @@ class Solution {
         if (minHeap.isEmpty() || maxHeap.isEmpty()) {
             return new int[]{0, 0};
         } else {
-            
             return new int[]{maxHeap.peek(), minHeap.peek()};
         }
     }
