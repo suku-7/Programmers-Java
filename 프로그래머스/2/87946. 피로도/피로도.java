@@ -1,15 +1,16 @@
+import java.util.*;
+
 class Solution {
-    boolean[] visited;
-    int answer = 0;
+    static boolean[] visited;
+    static int max = 0;
     
     public int solution(int k, int[][] dungeons) {
         visited = new boolean[dungeons.length];
         dfs(0, k, dungeons);
-        return answer;
+        return max;
     }
     private void dfs(int depth, int k, int[][] dungeons) {
-        answer = Math.max(answer, depth);
-        
+        max = Math.max(max, depth);
         for (int i=0; i<dungeons.length; i++) {
             int minRequired = dungeons[i][0];
             int cost = dungeons[i][1];
