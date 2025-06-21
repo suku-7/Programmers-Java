@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int solution(int[][] jobs) {
         Arrays.sort(jobs, Comparator.comparingInt(j -> j[0]));
