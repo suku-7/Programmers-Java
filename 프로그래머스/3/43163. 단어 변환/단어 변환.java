@@ -1,26 +1,25 @@
 import java.util.*;
-
 class Solution {
     private class Word {
         String word;
         int step;
-        Word(String word, int step) {
+        Word (String word, int step) {
             this.word = word;
             this.step = step;
         }
     }
     public int solution(String begin, String target, String[] words) {
-        if (!Arrays.asList(words).contains(target)) {
-            return 0;
-        }  
+        
         Queue<Word> queue = new LinkedList<>();
         boolean[] visited = new boolean[words.length];
+        
         queue.add(new Word(begin, 0));
         
         while (!queue.isEmpty()) {
             Word current = queue.poll();
             
-            if (current.word.equals(target)) {
+            if (target.equals(current.word)) {
+                System.out.println("확인용");
                 return current.step;
             }
             
@@ -39,7 +38,9 @@ class Solution {
             if (a.charAt(i) != b.charAt(i)) {
                 diff++;
             }
-            if (diff > 1) return false;
+            if (diff > 1) {
+                return false;
+            }
         }
         return diff == 1;
     }
