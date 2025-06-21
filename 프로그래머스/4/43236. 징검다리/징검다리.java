@@ -1,24 +1,25 @@
 import java.util.*;
+
 class Solution {
     public int solution(int distance, int[] rocks, int n) {
-        int left = 0;
+        int left = 1;
         int right = distance;
         int answer = 0;
-        Arrays.sort(rocks);
+        Arrays.sort(rocks);        
         
         while (left <= right) {
             int mid = (left + right) / 2;
             int removed = 0;
-            int past = 0;
+            int prev = 0;
             
             for (int i=0; i<rocks.length; i++) {
-                if (rocks[i] - past < mid) {
+                if (rocks[i] - prev < mid) {
                     removed++;
                 } else {
-                    past = rocks[i];
+                    prev = rocks[i];
                 }
             }
-            if (distance - past < mid) {
+            if (distance - prev < mid) {
                 removed++;
             }
             
