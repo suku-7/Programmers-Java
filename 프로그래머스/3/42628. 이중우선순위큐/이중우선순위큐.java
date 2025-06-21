@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Solution {
     public int[] solution(String[] operations) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
@@ -20,9 +21,9 @@ class Solution {
             }
         }
         if (minHeap.isEmpty() || maxHeap.isEmpty()) {
-            return new int[]{0, 0};
+            return new int[] {0, 0};
         } else {
-            return new int[]{maxHeap.peek(), minHeap.peek()};
+            return new int[] {maxHeap.peek(), minHeap.peek()};
         }
     }
 }
