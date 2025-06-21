@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Solution {
     public int solution(int[] scoville, int K) {
         PriorityQueue<Integer> heap = new PriorityQueue<>();
@@ -16,7 +17,7 @@ class Solution {
             count++;
         }
         if (heap.peek() >= K) {
-            return count;
+            return count++;
         } else {
             return -1;
         }
