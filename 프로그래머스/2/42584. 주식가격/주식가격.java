@@ -1,8 +1,10 @@
 import java.util.*;
+
 class Solution {
     public int[] solution(int[] prices) {
         int n = prices.length;
         int[] answer = new int[n];
+        
         Stack<Integer> stack = new Stack<>();
         
         for (int i=0; i<n; i++) {
@@ -14,7 +16,7 @@ class Solution {
         }
         while (!stack.isEmpty()) {
             int top = stack.pop();
-            answer[top] = n-top-1;
+            answer[top] = n - top - 1;
         }
         return answer;
     }
