@@ -2,7 +2,7 @@ import java.util.*;
 
 class Solution {
     List<String> wordList = new ArrayList<>();
-    String[] vowles = {"A", "E", "I", "O", "U"};
+    String[] vowels = {"A", "E", "I", "O", "U"};
     
     public int solution(String word) {
         dfs("", 0);
@@ -11,11 +11,11 @@ class Solution {
     private void dfs(String current, int depth) {
         if (depth > 5) return;
         
-        if (!current.isEmpty()) {
+        if (!current.equals("")) {
             wordList.add(current);
         }
-        for (String v : vowles) {
-            dfs(current + v, depth+1);
+        for (String v : vowels) {
+            dfs(current+v, depth+1);
         }
     }
 }
