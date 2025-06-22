@@ -1,12 +1,13 @@
 import java.util.*;
+
 class Solution {
     boolean[] visited;
     Set<Integer> numberSet = new HashSet<>();
     
     public int solution(String numbers) {
         visited = new boolean[numbers.length()];
-        dfs("", numbers, 0);        
         
+        dfs("", numbers, 0);
         int answer = 0;
         
         for (int num : numberSet) {
@@ -20,20 +21,21 @@ class Solution {
         if (!current.equals("")) {
             numberSet.add(Integer.parseInt(current));
         }
-        
         for (int i=0; i<numbers.length(); i++) {
             if (!visited[i]) {
                 visited[i] = true;
                 dfs(current+numbers.charAt(i), numbers, count+1);
                 visited[i] = false;
             }
-        }        
+        }
     }
     private boolean isPrime(int num) {
         if (num < 2) return false;
         int sqrt = (int) Math.sqrt(num);
         for (int i=2; i<=sqrt; i++) {
-            if (num % i == 0) return false;
+            if (num % i == 0) {
+                return false;
+            }
         }
         return true;
     }
