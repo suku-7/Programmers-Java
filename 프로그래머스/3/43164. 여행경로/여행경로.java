@@ -36,8 +36,8 @@ class Solution {
                 visited[i] = true;
                 path.add(tickets[i][1]);
                 dfs(tickets[i][1], tickets, path, count+1);
-                path.remove(path.size() - 1);
                 visited[i] = false;
+                path.remove(path.size()-1);
             }
         }
     }
