@@ -9,10 +9,11 @@ class Solution {
             this.step = step;
         }
     }
+    
     public int solution(String begin, String target, String[] words) {
-        
-        Queue<Word> queue = new LinkedList<>();
         boolean[] visited = new boolean[words.length];
+        Queue<Word> queue = new LinkedList<>(); 
+        
         queue.add(new Word(begin, 0));
         
         while (!queue.isEmpty()) {
@@ -21,7 +22,6 @@ class Solution {
             if (current.word.equals(target)) {
                 return current.step;
             }
-            
             for (int i=0; i<words.length; i++) {
                 if (!visited[i] && canConvert(current.word, words[i])) {
                     visited[i] = true;
