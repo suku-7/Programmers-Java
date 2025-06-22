@@ -9,6 +9,7 @@ class Solution {
             int day = (remain - speeds[i]-1) / speeds[i];
             queue.add(day);
         }
+        
         List<Integer> result = new ArrayList<>();
         
         while (!queue.isEmpty()) {
