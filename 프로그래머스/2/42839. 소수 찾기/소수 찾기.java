@@ -1,33 +1,33 @@
 import java.util.*;
-
 class Solution {
-    Set<Integer> numberSet = new HashSet<>();
     boolean[] visited;
+    Set<Integer> numberSet = new HashSet<>();
     
     public int solution(String numbers) {
         visited = new boolean[numbers.length()];
+        dfs("", numbers, 0);        
         
-        dfs("", numbers, 0);
+        int answer = 0;
         
-        int count = 0;
         for (int num : numberSet) {
             if (isPrime(num)) {
-                count++;
-            } 
+                answer++;
+            }
         }
-        return count;
+        return answer;
     }
-    private void dfs(String current, String numbers, int depth) {
+    private void dfs(String current, String numbers, int count) {
         if (!current.equals("")) {
             numberSet.add(Integer.parseInt(current));
         }
+        
         for (int i=0; i<numbers.length(); i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                dfs(current+numbers.charAt(i), numbers, depth+1);
+                dfs(current+numbers.charAt(i), numbers, count+1);
                 visited[i] = false;
             }
-        }
+        }        
     }
     private boolean isPrime(int num) {
         if (num < 2) return false;
