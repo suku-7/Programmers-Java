@@ -1,10 +1,8 @@
 import java.util.*;
 
-
 class Solution {
     public int solution(int bridge_length, int weight, int[] truck_weights) {
         Queue<Integer> queue = new LinkedList<>();
-        
         int time = 0;
         int idx = 0;
         int bridgeWeight = 0;
@@ -18,8 +16,8 @@ class Solution {
             bridgeWeight -= queue.poll();
             
             if (bridgeWeight + truck_weights[idx] <= weight) {
-                queue.add(truck_weights[idx]);
                 bridgeWeight += truck_weights[idx];
+                queue.add(truck_weights[idx]);
                 idx++;
             } else {
                 queue.add(0);
