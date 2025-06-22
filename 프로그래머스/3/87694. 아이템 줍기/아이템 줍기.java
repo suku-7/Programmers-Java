@@ -1,9 +1,9 @@
 import java.util.*;
 
 class Solution {
-    int SIZE = 102;
-    boolean[][] visited = new boolean[SIZE][SIZE];
-    boolean[][] maps = new boolean[SIZE][SIZE];
+    static int SIZE = 102;
+    static boolean[][] visited = new boolean[SIZE][SIZE];
+    static boolean[][] maps = new boolean[SIZE][SIZE];
     int[] dx = {-1, 1, 0, 0};
     int[] dy = {0, 0, -1, 1};
     
@@ -33,7 +33,7 @@ class Solution {
             }
         }
         Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[] {characterX * 2, characterY * 2, 0});
+        queue.add(new int[]{characterX * 2, characterY * 2, 0});
         visited[characterX * 2][characterY * 2] = true;
         
         while (!queue.isEmpty()) {
@@ -43,7 +43,7 @@ class Solution {
             int dist = current[2];
             
             if (x == itemX * 2 && y == itemY * 2) {
-                return dist/2;
+                return dist / 2;
             }
             
             for (int i=0; i<4; i++) {
@@ -53,7 +53,7 @@ class Solution {
                 if (nx >= 0 && ny >= 0 && nx < SIZE && ny < SIZE) {
                     if (!visited[nx][ny] && maps[nx][ny] == true) {
                         visited[nx][ny] = true;
-                        queue.add(new int[] {nx, ny, dist+1});
+                        queue.add(new int[]{nx, ny, dist+1});
                     }
                 }
             }
