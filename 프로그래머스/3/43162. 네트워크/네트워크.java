@@ -1,9 +1,8 @@
 import java.util.*;
 
 class Solution {
-    boolean[] visited; 
     public int solution(int n, int[][] computers) {
-        visited = new boolean[n];
+        boolean[] visited = new boolean[n];
         int answer = 0;
         
         for (int i=0; i<n; i++) {
