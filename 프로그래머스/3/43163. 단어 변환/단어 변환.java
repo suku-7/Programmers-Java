@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Solution {
     private class Word {
         String word;
@@ -8,7 +9,6 @@ class Solution {
             this.step = step;
         }
     }
-    
     public int solution(String begin, String target, String[] words) {
         
         Queue<Word> queue = new LinkedList<>();
