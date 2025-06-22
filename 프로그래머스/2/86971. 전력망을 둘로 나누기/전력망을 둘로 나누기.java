@@ -6,7 +6,6 @@ class Solution {
     public int solution(int n, int[][] wires) {
         for (int i=0; i<wires.length; i++) {
             List<List<Integer>> graph = new ArrayList<>();
-            
             for (int j=0; j<=n; j++) {
                 graph.add(new ArrayList<>());
             }
@@ -19,6 +18,7 @@ class Solution {
             }
             boolean[] visited = new boolean[n+1];
             int count = bfs(1, graph, visited);
+            
             int diff = Math.abs(n - count - count);
             answer = Math.min(answer, diff);
         }
