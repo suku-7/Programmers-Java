@@ -23,11 +23,12 @@ class Solution {
                 queue.add(current);
             } else {
                 answer++;
+                
                 if (current[0] == location) {
                     return answer;
                 }
             }
         }
-        return answer;
+        return 0;
     }
 }
