@@ -6,7 +6,7 @@ class Solution {
         
         for (int i=0; i<progresses.length; i++) {
             int remain = 100 - progresses[i];
-            int day = (remain - speeds[i]-1) / speeds[i];
+            int day = (remain + speeds[i]-1) / speeds[i];
             queue.add(day);
         }
         
