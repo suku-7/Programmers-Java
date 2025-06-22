@@ -10,8 +10,8 @@ class Solution {
         
         int answer = 1;
         for (int count : map.values()) {
-            answer *= (count+1);
+            answer *= count+1;
         }
-        return answer - 1;
+        return answer -1;
     }
 }
