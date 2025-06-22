@@ -1,12 +1,10 @@
 import java.util.*;
-
 class Solution {
     int answer = Integer.MAX_VALUE;
     
     public int solution(int n, int[][] wires) {
         for (int i=0; i<wires.length; i++) {
             List<List<Integer>> graph = new LinkedList<>();
-            
             for (int j=0; j<=n; j++) {
                 graph.add(new ArrayList<>());
             }
@@ -32,7 +30,6 @@ class Solution {
         
         while (!queue.isEmpty()) {
             int current = queue.poll();
-            
             for (int next : graph.get(current)) {
                 if (!visited[next]) {
                     visited[next] = true;
