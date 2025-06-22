@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public String solution(String[] participant, String[] completion) {
         HashMap<String, Integer> map = new HashMap<>();
@@ -10,6 +9,7 @@ class Solution {
         for (String c : completion) {
             map.put(c, map.get(c)-1);
         }
+        
         for (String p : map.keySet()) {
             if (map.get(p) > 0) {
                 return p;
