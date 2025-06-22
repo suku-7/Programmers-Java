@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     List<String> answer = new ArrayList<>();
     boolean[] visited;
@@ -36,7 +35,7 @@ class Solution {
                 path.add(tickets[i][1]);
                 dfs(tickets[i][1], tickets, path, count+1);
                 visited[i] = false;
-                path.remove(path.size() - 1);
+                path.remove(path.size()-1);
             }
         }
     }
