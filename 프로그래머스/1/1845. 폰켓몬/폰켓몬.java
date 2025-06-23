@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Solution {
     public int solution(int[] nums) {
         HashSet<Integer> pokemons = new HashSet<>();
@@ -6,7 +7,7 @@ class Solution {
         for (int num : nums) {
             pokemons.add(num);
         }
-        int maxP = Math.min(pokemons.size(), nums.length/2);
-        return maxP;
+        
+        return Math.min(pokemons.size(), nums.length/2);
     }
 }
