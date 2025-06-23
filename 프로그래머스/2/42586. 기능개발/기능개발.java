@@ -6,17 +6,17 @@ class Solution {
         
         for (int i=0; i<progresses.length; i++) {
             int remain = 100 - progresses[i];
-            int day = (remain + speeds[i]-1) / speeds[i];
+            int day = (remain + speeds[i] - 1) / speeds[i];
             queue.add(day);
         }
         
         List<Integer> result = new ArrayList<>();
         
         while (!queue.isEmpty()) {
-            int first = queue.poll();
+            int current = queue.poll();
             int count = 1;
             
-            while (!queue.isEmpty() && queue.peek() <= first) {
+            while (!queue.isEmpty() && queue.peek() <= current) {
                 queue.poll();
                 count++;
             }
