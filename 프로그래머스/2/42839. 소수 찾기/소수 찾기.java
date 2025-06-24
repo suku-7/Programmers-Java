@@ -1,30 +1,30 @@
 import java.util.*;
 
 class Solution {
-    boolean[] visited;
     Set<Integer> numberSet = new HashSet<>();
+    boolean[] visited;
     
     public int solution(String numbers) {
         visited = new boolean[numbers.length()];
         
         dfs("", numbers, 0);
-        int answer = 0;
         
+        int count = 0;
         for (int num : numberSet) {
             if (isPrime(num)) {
-                answer++;
+                count++;
             }
         }
-        return answer;
+        return count;
     }
-    private void dfs(String current, String numbers, int count) {
+    private void dfs(String current, String numbers, int depth) {
         if (!current.equals("")) {
             numberSet.add(Integer.parseInt(current));
         }
         for (int i=0; i<numbers.length(); i++) {
             if (!visited[i]) {
                 visited[i] = true;
-                dfs(current+numbers.charAt(i), numbers, count+1);
+                dfs(current+numbers.charAt(i), numbers, depth+1);
                 visited[i] = false;
             }
         }
