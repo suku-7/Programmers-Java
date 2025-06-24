@@ -1,10 +1,12 @@
 import java.util.*;
+
 class Solution {
-    int answer = Integer.MAX_VALUE;
-    
     public int solution(int n, int[][] wires) {
+        int answer = Integer.MAX_VALUE;
+        
         for (int i=0; i<wires.length; i++) {
-            List<List<Integer>> graph = new LinkedList<>();
+            List<List<Integer>> graph = new ArrayList<>();
+            
             for (int j=0; j<=n; j++) {
                 graph.add(new ArrayList<>());
             }
