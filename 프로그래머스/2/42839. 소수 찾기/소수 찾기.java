@@ -6,7 +6,6 @@ class Solution {
     
     public int solution(String numbers) {
         visited = new boolean[numbers.length()];
-        
         dfs("", numbers, 0);
         
         int count = 0;
@@ -33,9 +32,7 @@ class Solution {
         if (num < 2) return false;
         int sqrt = (int) Math.sqrt(num);
         for (int i=2; i<=sqrt; i++) {
-            if (num % i == 0) {
-                return false;
-            }
+            if (num % i == 0) return false;
         }
         return true;
     }
