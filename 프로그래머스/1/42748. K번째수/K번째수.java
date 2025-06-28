@@ -8,10 +8,10 @@ class Solution {
             int j = commands[idx][1];
             int k = commands[idx][2];
             
-            int[] result = Arrays.copyOfRange(array, i-1, j);
-            Arrays.sort(result);
+            int[] sub = Arrays.copyOfRange(array, i-1, j);
+            Arrays.sort(sub);
             
-            answer[idx] = result[k-1];
+            answer[idx] = sub[k-1];
         }
         return answer;
     }
