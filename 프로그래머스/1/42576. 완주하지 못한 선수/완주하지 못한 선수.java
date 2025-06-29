@@ -9,7 +9,7 @@ class Solution {
         for (String c : completion) {
             map.put(c, map.get(c)-1);
         }
-        for (String p : map.keySet()) {
+        for (String p : participant) {
             if (map.get(p) > 0) {
                 return p;
             }
