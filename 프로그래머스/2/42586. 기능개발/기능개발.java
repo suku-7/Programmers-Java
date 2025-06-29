@@ -3,12 +3,14 @@ import java.util.*;
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
         Queue<Integer> queue = new LinkedList<>();
+        
         for (int i=0; i<progresses.length; i++) {
             int remain = 100 - progresses[i];
             int day = (remain + speeds[i]-1) / speeds[i];
             queue.add(day);
         }
-        List<Integer> answer = new ArrayList<>();
+        
+        List<Integer> result = new ArrayList<>();
         
         while (!queue.isEmpty()) {
             int first = queue.poll();
@@ -18,13 +20,13 @@ class Solution {
                 queue.poll();
                 count++;
             }
-            answer.add(count);
+            result.add(count);
         }
-        int[] result = new int[answer.size()];
+        int[] answer = new int[result.size()];
         
-        for (int i=0; i<answer.size(); i++) {
-            result[i] = answer.get(i);
+        for (int i=0; i<result.size(); i++) {
+            answer[i] = result.get(i);
         }
-        return result; 
+        return answer;
     }
 }
