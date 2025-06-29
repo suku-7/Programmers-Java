@@ -7,7 +7,7 @@ class Solution {
         for (char c : s.toCharArray()) {
             if (c == '(') {
                 stack.push(c);
-            } else if (c == ')') {
+            } else if(c == ')') {
                 if (stack.isEmpty()) {
                     return false;
                 }
