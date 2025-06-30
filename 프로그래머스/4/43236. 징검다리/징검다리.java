@@ -2,10 +2,11 @@ import java.util.*;
 
 class Solution {
     public int solution(int distance, int[] rocks, int n) {
+        Arrays.sort(rocks);
+        
         int left = 1;
         int right = distance;
         int answer = 0;
-        Arrays.sort(rocks);        
         
         while (left <= right) {
             int mid = (left + right) / 2;
@@ -22,14 +23,14 @@ class Solution {
             if (distance - prev < mid) {
                 removed++;
             }
-            
             if (removed > n) {
                 right = mid - 1;
             } else {
                 answer = mid;
-                left = mid + 1;
+                left = mid+1;
             }
         }
+
         return answer;
     }
 }
