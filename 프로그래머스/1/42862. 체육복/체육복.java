@@ -2,13 +2,13 @@ import java.util.*;
 
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
-        HashSet<Integer> lostSet = new HashSet<>();
-        HashSet<Integer> reserveSet = new HashSet<>();
+        Set<Integer> lostSet = new HashSet<>();
+        Set<Integer> reserveSet = new HashSet<>();
         
         for (int l : lost) lostSet.add(l);
         for (int r : reserve) reserveSet.add(r);
         
-        HashSet<Integer> realLost = new HashSet<>(lostSet);
+        Set<Integer> realLost = new HashSet<>(lostSet);
         
         for (int l : lost) {
             if (reserveSet.contains(l)) {
