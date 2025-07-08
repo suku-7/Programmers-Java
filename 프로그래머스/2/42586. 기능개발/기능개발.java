@@ -6,11 +6,10 @@ class Solution {
         
         for (int i=0; i<progresses.length; i++) {
             int remain = 100 - progresses[i];
-            int day = (remain + speeds[i]-1) / speeds[i];
+            int day = (remain + speeds[i] - 1) / speeds[i];
             queue.add(day);
         }
-        
-        List<Integer> result = new ArrayList<>();
+        List<Integer> result = new LinkedList<>();
         
         while (!queue.isEmpty()) {
             int first = queue.poll();
@@ -22,11 +21,6 @@ class Solution {
             }
             result.add(count);
         }
-        int[] answer = new int[result.size()];
-        
-        for (int i=0; i<result.size(); i++) {
-            answer[i] = result.get(i);
-        }
-        return answer;
+        return result.stream().mapToInt(i -> i).toArray();
     }
 }
