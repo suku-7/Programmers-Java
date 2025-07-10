@@ -3,8 +3,8 @@ import java.util.*;
 class Solution {
     public int solution(int[][] routes) {
         Arrays.sort(routes, Comparator.comparingInt(route -> route[1]));
-        int last = Integer.MIN_VALUE;
         int count = 0;
+        int last = Integer.MIN_VALUE;
         
         for (int[] route : routes) {
             if (route[0] <= last && last <= route[1]) continue;
