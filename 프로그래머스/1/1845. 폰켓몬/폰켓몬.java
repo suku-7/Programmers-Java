@@ -7,7 +7,7 @@ class Solution {
         for (int num : nums) {
             pokemons.add(num);
         }
-        
-        return Math.min(pokemons.size(), nums.length/2);
+        int maxP = Math.min(pokemons.size(), nums.length/2);
+        return maxP;
     }
 }
