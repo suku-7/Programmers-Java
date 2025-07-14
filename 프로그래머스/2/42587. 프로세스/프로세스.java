@@ -16,12 +16,14 @@ class Solution {
             for (int[] q : queue) {
                 if (q[1] > current[1]) {
                     highP = true;
+                    break;
                 }
             }
             if (highP) {
                 queue.add(current);
             } else {
                 answer++;
+                
                 if (current[0] == location) {
                     return answer;
                 }
