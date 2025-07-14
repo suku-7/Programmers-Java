@@ -12,7 +12,6 @@ public class Solution {
                 prev = num;
             }
         }
-        
         int[] answer = new int[queue.size()];
         int i = 0;
         
