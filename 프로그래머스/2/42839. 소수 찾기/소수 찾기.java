@@ -6,6 +6,7 @@ class Solution {
     
     public int solution(String numbers) {
         visited = new boolean[numbers.length()];
+        
         dfs("", numbers, 0);
         
         int count = 0;
