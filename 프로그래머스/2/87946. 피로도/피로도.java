@@ -15,7 +15,7 @@ class Solution {
             int need = dungeons[i][0];
             int cost = dungeons[i][1];
             
-            if (!visited[i] && k >= need) {
+            if (!visited[i] && k>=need) {
                 visited[i] = true;
                 dfs(depth+1, k-cost, dungeons);
                 visited[i] = false;
