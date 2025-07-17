@@ -19,6 +19,7 @@ class Solution {
             }
             boolean[] visited = new boolean[n+1];
             int count = bfs(1, graph, visited);
+            
             int diff = Math.abs(n - count - count);
             answer = Math.min(answer, diff);
         }
