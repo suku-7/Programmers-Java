@@ -8,14 +8,14 @@ class Solution {
         dfs("", 0);
         return wordList.indexOf(word)+1;
     }
-    private void dfs (String current, int depth) {
+    private void dfs(String current, int depth) {
         if (depth > 5) return;
         
-        if (!current.equals("")) {
+        if (!current.isEmpty()) {
             wordList.add(current);
         }
         for (String v : vowels) {
-            dfs(current+v, depth+1);
+            dfs(current + v, depth+1);
         }
     }
 }
