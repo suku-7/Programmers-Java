@@ -20,7 +20,7 @@ class Solution {
                 answer += c;
                 count++;
                 
-                if (count == n-1) break; 
+                if (count == n-1) break;
             }
         }
         return answer;
