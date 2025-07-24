@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int[] solution(String[] genres, int[] plays) {
         Map<String, Integer> gSum = new HashMap<>();
