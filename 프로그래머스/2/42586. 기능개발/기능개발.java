@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
         Queue<Integer> queue = new LinkedList<>();
@@ -9,6 +8,7 @@ class Solution {
             int day = (remain + speeds[i]-1) / speeds[i];
             queue.add(day);
         }
+        
         List<Integer> result = new ArrayList<>();
         
         while (!queue.isEmpty()) {
@@ -21,6 +21,6 @@ class Solution {
             }
             result.add(count);
         }
-        return result.stream().mapToInt(i->i).toArray();
+        return result.stream().mapToInt(i -> i).toArray();
     }
 }
