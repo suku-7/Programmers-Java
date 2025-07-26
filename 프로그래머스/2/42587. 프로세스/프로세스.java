@@ -1,12 +1,12 @@
 import java.util.*;
-
 class Solution {
     public int solution(int[] priorities, int location) {
         Queue<int[]> queue = new LinkedList<>();
         
         for (int i=0; i<priorities.length; i++) {
-            queue.add(new int[] {i, priorities[i]});
+            queue.add(new int[]{i, priorities[i]});
         }
+        
         int answer = 0;
         
         while (!queue.isEmpty()) {
@@ -23,7 +23,6 @@ class Solution {
                 queue.add(current);
             } else {
                 answer++;
-                
                 if (current[0] == location) {
                     return answer;
                 }
