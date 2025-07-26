@@ -1,7 +1,4 @@
 import java.util.*;
-
-
-
 class Solution {
     public int[] solution(int[] prices) {
         int n = prices.length;
@@ -15,9 +12,9 @@ class Solution {
             }
             stack.push(i);
         }
-        while (!stack.isEmpty()) {
+        while(!stack.isEmpty()) {
             int prev = stack.pop();
-            answer[prev] = n - prev - 1;
+            answer[prev] = n-prev-1;
         }
         return answer;
     }
