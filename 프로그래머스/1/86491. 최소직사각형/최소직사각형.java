@@ -6,9 +6,8 @@ class Solution {
         for (int[] size : sizes) {
             int w = Math.max(size[0], size[1]);
             int h = Math.min(size[0], size[1]);
-            
-            maxW = Math.max(w, maxW);
-            maxH = Math.max(h, maxH);
+            maxW = Math.max(maxW, w);
+            maxH = Math.max(maxH, h);
         }
         return maxW * maxH;
     }
