@@ -5,7 +5,7 @@ class Solution {
         long left = 1;
         int maxTime = 0;
         for (int time : times) {
-            maxTime = Math.max(maxTime, time);
+            maxTime = Math.max(maxTime, time);    
         }
         long right = (long) maxTime * n;
         long answer = right;
@@ -15,7 +15,7 @@ class Solution {
             long people = 0;
             
             for (int time : times) {
-                people += mid/time;
+                people += mid / time;
             }
             if (people >= n) {
                 answer = mid;
