@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int solution(int n, int[][] costs) {
         Arrays.sort(costs, (a, b) -> a[2] - b[2]);
@@ -29,7 +28,7 @@ class Solution {
         if (parent[x] == x) return x;
         return parent[x] = find(parent, parent[x]);
     }
-    private void union(int[] parent, int a, int b) {
+    private void union (int[] parent, int a, int b) {
         int rootA = find(parent, a);
         int rootB = find(parent, b);
         if (rootA < rootB) parent[rootB] = rootA;
