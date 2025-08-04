@@ -1,9 +1,7 @@
 import java.util.*;
-
 class Solution {
     public int[] solution(String[] operations) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-        
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
         
         for (String operation : operations) {
@@ -20,8 +18,8 @@ class Solution {
             }
         }
         if (minHeap.isEmpty() || maxHeap.isEmpty()) {
-            return new int[] {0, 0};
+            return new int[]{0, 0};
         }
-        return new int[]{maxHeap.poll(), minHeap.poll()};
+        return new int[] {maxHeap.poll(), minHeap.poll()};
     }
 }
