@@ -1,4 +1,6 @@
 import java.util.*;
+
+
 class Solution {
     public int solution(int[] nums) {
         HashSet<Integer> pokemons = new HashSet<>();
