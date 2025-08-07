@@ -6,6 +6,7 @@ class Solution {
         
         for (int i=0; i<genres.length; i++) {
             gSum.put(genres[i], gSum.getOrDefault(genres[i], 0)+plays[i]);
+            
             if (!gMap.containsKey(genres[i])) {
                 gMap.put(genres[i], new ArrayList<>());
             }
