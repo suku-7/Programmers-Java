@@ -9,6 +9,7 @@ class Solution {
             this.step = step;
         }
     }
+    
     public int solution(String begin, String target, String[] words) {
         if (!Arrays.asList(words).contains(target)) {
             return 0;
