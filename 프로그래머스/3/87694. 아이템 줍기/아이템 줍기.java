@@ -1,9 +1,10 @@
 import java.util.*;
+
 class Solution {
     static final int SIZE = 102;
     static boolean[][] map = new boolean[SIZE][SIZE];
     static boolean[][] visited = new boolean[SIZE][SIZE];
-    static int[] dx = {-1, 1, 0, 0};
+    static int[] dx = {-1 , 1, 0, 0};
     static int[] dy = {0, 0, -1 , 1};
     
     public int solution(int[][] rectangle, int characterX, int characterY, int itemX, int itemY) {
