@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
     static boolean[] visited;
     static int max = 0;
@@ -21,5 +19,5 @@ class Solution {
                 visited[i] = false;
             }
         }
-    } 
+    }
 }
