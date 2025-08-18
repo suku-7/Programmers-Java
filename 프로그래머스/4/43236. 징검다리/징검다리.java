@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Solution {
     public int solution(int distance, int[] rocks, int n) {
         Arrays.sort(rocks);
@@ -8,7 +9,7 @@ class Solution {
         int answer = 0;
         
         while (left <= right) {
-            int mid = (left + right) / 2;
+            int mid = (left+right) / 2;
             int removed = 0;
             int prev = 0;
             
@@ -23,12 +24,12 @@ class Solution {
                 removed++;
             }
             if (removed > n) {
-                right = mid - 1;
+                right = mid -1;
             } else {
                 answer = mid;
                 left = mid + 1;
             }
-        } 
+        }
         return answer;
     }
 }
