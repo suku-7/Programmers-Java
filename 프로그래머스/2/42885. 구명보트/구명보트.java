@@ -8,7 +8,7 @@ class Solution {
         int boats = 0;
         
         while (left <= right) {
-            if (people[left] + people[right] <=limit) {
+            if (people[left] + people[right] <= limit) {
                 left++;
             }
             right--;
