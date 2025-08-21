@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int solution(int[][] routes) {
         Arrays.sort(routes, Comparator.comparingInt(route -> route[1]));
