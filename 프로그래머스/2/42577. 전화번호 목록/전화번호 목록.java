@@ -7,7 +7,6 @@ class Solution {
         for (String num : phone_book) {
             set.add(num);
         }
-        
         for (String num : phone_book) {
             for (int i=1; i<num.length(); i++) {
                 String prefix = num.substring(0, i);
