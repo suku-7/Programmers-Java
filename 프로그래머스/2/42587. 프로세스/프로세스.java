@@ -27,7 +27,7 @@ class Solution {
                 if (current[0] == location) {
                     return answer;
                 }
-            } 
+            }
         }
         return answer;
     }
