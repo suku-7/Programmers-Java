@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int solution(int[][] maps) {
         int n = maps.length;
@@ -27,13 +26,13 @@ class Solution {
                     if (!visited[nx][ny] && maps[nx][ny] == 1) {
                         maps[nx][ny] = maps[x][y] + 1;
                         visited[nx][ny] = true;
-                        queue.add(new int[] {nx, ny});
+                        queue.add(new int[]{nx, ny});
                         
                         if (nx == n-1 && ny == m-1) {
                             return maps[nx][ny];
                         }
                     }
-                }
+                } 
             }
         }
         return -1;
