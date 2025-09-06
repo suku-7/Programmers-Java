@@ -1,5 +1,7 @@
 import java.util.*;
 
+
+
 class Solution {
     List<String> wordList = new ArrayList<>();
     String[] vowels = {"A", "E", "I", "O", "U"};
