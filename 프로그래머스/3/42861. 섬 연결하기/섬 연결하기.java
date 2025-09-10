@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int solution(int n, int[][] costs) {
         Arrays.sort(costs, (a, b) -> a[2] - b[2]);
