@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 class Solution {
     public boolean solution(String[] phone_book) {
         HashSet<String> set = new HashSet<>();
