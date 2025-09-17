@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class Solution {
     public int solution(int[] priorities, int location) {
         Queue<int[]> queue = new LinkedList<>();
