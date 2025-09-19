@@ -3,12 +3,12 @@ import java.util.*;
 class Solution {
     Set<Integer> numberSet = new HashSet<>();
     boolean[] visited;
-
+    
     public int solution(String numbers) {
         visited = new boolean[numbers.length()];
-
+        
         dfs("", numbers, 0);
-
+        
         int count = 0;
         for (int num : numberSet) {
             if (isPrime(num)) {
@@ -31,7 +31,7 @@ class Solution {
     }
     private boolean isPrime(int num) {
         if (num < 2) return false;
-        int sqrt = (int) Math.sqrt(num);
+        int sqrt = (int)Math.sqrt(num);
         for (int i=2; i<=sqrt; i++) {
             if (num % i == 0) return false;
         }
