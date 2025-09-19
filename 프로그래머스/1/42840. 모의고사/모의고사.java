@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class Solution {
     public int[] solution(int[] answers) {
         int[] person1 = {1, 2, 3, 4, 5};
