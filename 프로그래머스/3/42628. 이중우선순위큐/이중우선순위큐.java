@@ -1,5 +1,4 @@
 import java.util.*;
-
 class Solution {
     public int[] solution(String[] operations) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
