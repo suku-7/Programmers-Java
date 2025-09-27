@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Solution {
     public int solution(int distance, int[] rocks, int n) {
         Arrays.sort(rocks);
