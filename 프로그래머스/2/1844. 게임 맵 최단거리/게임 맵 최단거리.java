@@ -1,4 +1,5 @@
 import java.util.*;
+
 class Solution {
     public int solution(int[][] maps) {
         int n = maps.length;
