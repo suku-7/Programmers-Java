@@ -8,21 +8,18 @@ class Solution {
     static int[] dy = {0, 0, -1, 1};
 
     public int solution(int[][] rectangle, int characterX, int characterY, int itemX, int itemY) {
-        // Step 1: 좌표 2배 확장
         for (int[] rect : rectangle) {
             int x1 = rect[0] * 2;
             int y1 = rect[1] * 2;
             int x2 = rect[2] * 2;
             int y2 = rect[3] * 2;
 
-            //Step 2 : 사각형 내부 채우기
             for (int i=x1; i<=x2; i++) {
                 for (int j=y1; j<=y2; j++) {
                     map[i][j] = true;
                 }
             }
         }
-        // Step 3: 내부 제거 (테두리만 남기기)
         for (int[] rect : rectangle) {
             int x1 = rect[0] * 2;
             int y1 = rect[1] * 2;
