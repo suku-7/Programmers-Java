@@ -1,7 +1,6 @@
 import java.util.*;
 
 class Solution {
-    
     public int solution(int n, int[][] wires) {
         int answer = Integer.MAX_VALUE;
         
